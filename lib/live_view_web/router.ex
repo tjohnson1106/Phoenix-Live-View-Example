@@ -10,7 +10,7 @@ defmodule LiveViewWeb.Router do
     plug :put_secure_browser_headers
 
     plug :put_layout, {
-      LiveViewCounterWeb.LayoutView,
+      LiveViewWeb.LayoutView,
       :app
     }
   end
@@ -22,7 +22,7 @@ defmodule LiveViewWeb.Router do
   scope "/", LiveViewWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live("/", CounterLive)
   end
 
   # Other scopes may use custom stacks.
